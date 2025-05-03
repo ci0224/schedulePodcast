@@ -5,6 +5,10 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
+  server: {
+    port: 3005,
+    strictPort: true,
+  },
   define: {
     'window.env': {
       OPENAI_API_KEY: JSON.stringify(process.env.OPENAI_API_KEY)
