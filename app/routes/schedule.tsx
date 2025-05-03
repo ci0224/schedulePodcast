@@ -23,6 +23,7 @@ interface PatientInfo {
 
 export default function Schedule() {
   const [schedules, setSchedules] = useState<ScheduleDay[]>([]);
+  const [selectedDate, setSelectedDate] = useState<string>('');
   const [selectedPatient, setSelectedPatient] = useState<PatientInfo | null>(null);
   const [selectedSpeech, setSelectedSpeech] = useState<SpeechText | null>(null);
   const [isGeneratingSpeech, setIsGeneratingSpeech] = useState(false);
@@ -46,7 +47,30 @@ export default function Schedule() {
     // Get schedules for the current doctor
     const doctorSchedules = getSchedules(doctor.name);
     setSchedules(doctorSchedules);
+
+    // Set default selected date to today or next available date
+    const today = new Date().toISOString().split('T')[0];
+    const nextAvailableDate = doctorSchedules.find(schedule => schedule.date >= today)?.date || today;
+    setSelectedDate(nextAvailableDate);
   }, [navigate]);
+
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedDate(e.target.value);
+  };
+
+  const handlePreviousDay = () => {
+    const currentIndex = schedules.findIndex(schedule => schedule.date === selectedDate);
+    if (currentIndex > 0) {
+      setSelectedDate(schedules[currentIndex - 1].date);
+    }
+  };
+
+  const handleNextDay = () => {
+    const currentIndex = schedules.findIndex(schedule => schedule.date === selectedDate);
+    if (currentIndex < schedules.length - 1) {
+      setSelectedDate(schedules[currentIndex + 1].date);
+    }
+  };
 
   const handleLogout = () => {
     localStorage.removeItem('currentDoctor');
@@ -92,6 +116,8 @@ export default function Schedule() {
     }
   };
 
+  const currentDaySchedule = schedules.find(schedule => schedule.date === selectedDate);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -105,15 +131,36 @@ export default function Schedule() {
           </button>
         </div>
 
+        <div className="mb-6 flex items-center space-x-4">
+          <button
+            onClick={handlePreviousDay}
+            className="px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Previous Day
+          </button>
+          <input
+            type="date"
+            value={selectedDate}
+            onChange={handleDateChange}
+            className="px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          />
+          <button
+            onClick={handleNextDay}
+            className="px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Next Day
+          </button>
+        </div>
+
         <div className="space-y-8">
-          {schedules.map((day) => (
-            <div key={day.date} className="bg-white shadow overflow-hidden sm:rounded-lg">
+          {currentDaySchedule && (
+            <div className="bg-white shadow overflow-hidden sm:rounded-lg">
               <div className="px-4 py-5 sm:px-6 bg-gray-50 flex justify-between items-center">
                 <h3 className="text-lg leading-6 font-medium text-gray-900">
-                  {new Date(day.date + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+                  {new Date(currentDaySchedule.date + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
                 </h3>
                 <button
-                  onClick={() => handleGenerateSpeech(day.date)}
+                  onClick={() => handleGenerateSpeech(currentDaySchedule.date)}
                   disabled={isGeneratingSpeech}
                   className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
                 >
@@ -121,8 +168,8 @@ export default function Schedule() {
                 </button>
               </div>
               <ul className="divide-y divide-gray-200">
-                {day.visits.map((visit, index) => (
-                  <li key={`${day.date}-${index}`}>
+                {currentDaySchedule.visits.map((visit, index) => (
+                  <li key={`${currentDaySchedule.date}-${index}`}>
                     <div 
                       className="px-4 py-4 sm:px-6 cursor-pointer hover:bg-gray-50"
                       onClick={() => handlePatientClick(visit.patient_id)}
@@ -152,7 +199,7 @@ export default function Schedule() {
                 ))}
               </ul>
             </div>
-          ))}
+          )}
         </div>
       </div>
 
