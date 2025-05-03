@@ -8,6 +8,7 @@ export default defineConfig({
   server: {
     port: 3005,
     strictPort: true,
+    host: '0.0.0.0',
   },
   define: {
     'window.env': {
