@@ -36,47 +36,28 @@ interface PatientVisit {
 }
 
 export async function generateDaySummarySpeech(visits: PatientVisit[]): Promise<string> {
-  const prompt = `As a medical assistant, generate a concise morning briefing for a doctor about their day's schedule. 
-Include relevant patient history and important medical information. Be professional but conversational.
-
-Today's schedule:
-${visits.map(visit => `
-Time: ${visit.time}
-Patient: ${visit.patientDetails?.name || 'New Patient'}
-Reason: ${visit.reason}
-${visit.patientDetails ? `
-Medical History:
-- Age: ${visit.patientDetails.age}
-- Gender: ${visit.patientDetails.gender}
-- Conditions: ${visit.patientDetails.conditions.join(', ') || 'None'}
-- Medications: ${visit.patientDetails.medications.join(', ') || 'None'}
-- Allergies: ${visit.patientDetails.allergies.join(', ') || 'None'}
-- Last Visit: ${visit.patientDetails.visits[visit.patientDetails.visits.length - 1]?.visitSummary || 'No previous visits'}
-` : 'New patient, no medical history available'}
-`).join('\n')}
-
-Please provide a natural, conversational summary that the doctor can listen to while preparing for their day.`;
-
   try {
-    const completion = await openai.chat.completions.create({
-      messages: [
-        {
-          role: "system",
-          content: "You are a medical assistant providing a morning briefing to a doctor about their day's schedule. Be concise, professional, and highlight important medical information."
-        },
-        {
-          role: "user",
-          content: prompt
-        }
-      ],
-      model: "gpt-4.1-mini",
-      temperature: 0.7,
-      max_tokens: 5000,
+    console.log('Sending request to backend with visits:', visits);
+    
+    const response = await fetch('http://localhost:8000/api/generate-day-summary', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(visits),
     });
 
-    return completion.choices[0].message.content || 'Unable to generate speech text.';
-  } catch (error) {
-    console.error('Error calling OpenAI API:', error);
-    throw new Error('Failed to generate speech text');
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => null);
+      console.error('Backend error response:', errorData);
+      throw new Error(`HTTP error! status: ${response.status}, details: ${errorData?.detail || 'No details available'}`);
+    }
+
+    const data = await response.json();
+    console.log('Received response from backend:', data);
+    return data.summary;
+  } catch (error: any) {
+    console.error('Error calling backend API:', error);
+    throw new Error(`Failed to generate speech text: ${error?.message || 'Unknown error'}`);
   }
 } 
