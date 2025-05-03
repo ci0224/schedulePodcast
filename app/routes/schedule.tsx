@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import { getSchedules, getDoctorById, getPatientNameById, isNewPatient, type ScheduleDay, generateDaySummarySpeech, getStoredSpeechText, storeSpeechText, type SpeechText } from '../api/schedule';
 import visitHistoryData from '../dummydata/visitHistory.json';
 import SpeakButton from '../components/SpeakButton';
+import StyledSpeechText from '../components/StyledSpeechText';
 
 interface PatientInfo {
   patient_id: string;
@@ -117,6 +118,11 @@ export default function Schedule() {
     }
   };
 
+  const handleClearSpeechCache = (date: string) => {
+    localStorage.removeItem(`speech_${date}`);
+    setSelectedSpeech(null);
+  };
+
   const currentDaySchedule = schedules.find(schedule => schedule.date === selectedDate);
 
   return (
@@ -160,13 +166,21 @@ export default function Schedule() {
                 <h3 className="text-lg leading-6 font-medium text-gray-900">
                   {new Date(currentDaySchedule.date + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
                 </h3>
-                <button
-                  onClick={() => handleGenerateSpeech(currentDaySchedule.date)}
-                  disabled={isGeneratingSpeech}
-                  className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
-                >
-                  {isGeneratingSpeech ? 'Generating...' : 'Generate Speech'}
-                </button>
+                <div className="flex items-center space-x-4">
+                  <button
+                    onClick={() => handleGenerateSpeech(currentDaySchedule.date)}
+                    disabled={isGeneratingSpeech}
+                    className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+                  >
+                    {isGeneratingSpeech ? 'Generating...' : 'Generate Speech'}
+                  </button>
+                  <button
+                    onClick={() => handleClearSpeechCache(currentDaySchedule.date)}
+                    className="inline-flex items-center px-3 py-1.5 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  >
+                    Clear Cache
+                  </button>
+                </div>
               </div>
               <ul className="divide-y divide-gray-200">
                 {currentDaySchedule.visits.map((visit, index) => (
@@ -337,12 +351,13 @@ export default function Schedule() {
               </div>
             </div>
             <div className="px-6 py-4">
-              <div className="prose max-w-none">
-                <p className="text-gray-900">{selectedSpeech.text}</p>
-                <p className="text-sm text-gray-500 mt-4">
-                  Last updated: {new Date(selectedSpeech.lastUpdated).toLocaleString()}
-                </p>
-              </div>
+              <StyledSpeechText 
+                text={selectedSpeech.text} 
+                visitReasons={currentDaySchedule?.visits.map(visit => visit.reason) || []}
+              />
+              <p className="text-sm text-gray-500 mt-4">
+                Last updated: {new Date(selectedSpeech.lastUpdated).toLocaleString()}
+              </p>
             </div>
           </div>
         </div>
