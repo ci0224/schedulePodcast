@@ -76,7 +76,7 @@ export default function Schedule() {
             <div key={day.date} className="bg-white shadow overflow-hidden sm:rounded-lg">
               <div className="px-4 py-5 sm:px-6 bg-gray-50">
                 <h3 className="text-lg leading-6 font-medium text-gray-900">
-                  {new Date(day.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+                  {new Date(day.date + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
                 </h3>
               </div>
               <ul className="divide-y divide-gray-200">
