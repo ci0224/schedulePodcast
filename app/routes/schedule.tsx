@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
-import { getSchedules, getDoctorById, getPatientNameById, isNewPatient, type ScheduleDay } from '../api/schedule';
+import { getSchedules, getDoctorById, getPatientNameById, isNewPatient, type ScheduleDay, generateDaySummarySpeech, getStoredSpeechText, storeSpeechText, type SpeechText } from '../api/schedule';
 import visitHistoryData from '../dummydata/visitHistory.json';
 
 interface PatientInfo {
@@ -24,6 +24,8 @@ interface PatientInfo {
 export default function Schedule() {
   const [schedules, setSchedules] = useState<ScheduleDay[]>([]);
   const [selectedPatient, setSelectedPatient] = useState<PatientInfo | null>(null);
+  const [selectedSpeech, setSelectedSpeech] = useState<SpeechText | null>(null);
+  const [isGeneratingSpeech, setIsGeneratingSpeech] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -58,6 +60,38 @@ export default function Schedule() {
     }
   };
 
+  const handleGenerateSpeech = async (date: string) => {
+    setIsGeneratingSpeech(true);
+    try {
+      // Check if we have stored speech text
+      const storedSpeech = getStoredSpeechText(date);
+      if (storedSpeech) {
+        setSelectedSpeech(storedSpeech);
+        return;
+      }
+
+      // Generate new speech text
+      const currentDoctorId = localStorage.getItem('currentDoctor');
+      if (!currentDoctorId) {
+        throw new Error('No doctor logged in');
+      }
+
+      const doctor = getDoctorById(Number(currentDoctorId));
+      if (!doctor) {
+        throw new Error('Doctor not found');
+      }
+
+      const speechText = await generateDaySummarySpeech(date, doctor.name);
+      storeSpeechText(speechText);
+      setSelectedSpeech(speechText);
+    } catch (error) {
+      console.error('Error generating speech:', error);
+      // TODO: Show error message to user
+    } finally {
+      setIsGeneratingSpeech(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -74,10 +108,17 @@ export default function Schedule() {
         <div className="space-y-8">
           {schedules.map((day) => (
             <div key={day.date} className="bg-white shadow overflow-hidden sm:rounded-lg">
-              <div className="px-4 py-5 sm:px-6 bg-gray-50">
+              <div className="px-4 py-5 sm:px-6 bg-gray-50 flex justify-between items-center">
                 <h3 className="text-lg leading-6 font-medium text-gray-900">
                   {new Date(day.date + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
                 </h3>
+                <button
+                  onClick={() => handleGenerateSpeech(day.date)}
+                  disabled={isGeneratingSpeech}
+                  className="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+                >
+                  {isGeneratingSpeech ? 'Generating...' : 'Generate Speech'}
+                </button>
               </div>
               <ul className="divide-y divide-gray-200">
                 {day.visits.map((visit, index) => (
@@ -220,6 +261,36 @@ export default function Schedule() {
                     ))}
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Speech Text Dialog */}
+      {selectedSpeech && (
+        <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white/95 backdrop-blur-sm rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-xl">
+            <div className="px-6 py-4 border-b border-gray-200">
+              <div className="flex justify-between items-center">
+                <h3 className="text-lg font-medium text-gray-900">Day Summary Speech</h3>
+                <button
+                  onClick={() => setSelectedSpeech(null)}
+                  className="text-gray-400 hover:text-gray-500"
+                >
+                  <span className="sr-only">Close</span>
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div className="px-6 py-4">
+              <div className="prose max-w-none">
+                <p className="text-gray-900">{selectedSpeech.text}</p>
+                <p className="text-sm text-gray-500 mt-4">
+                  Last updated: {new Date(selectedSpeech.lastUpdated).toLocaleString()}
+                </p>
               </div>
             </div>
           </div>
