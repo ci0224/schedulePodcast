@@ -71,7 +71,7 @@ Please provide a natural, conversational summary that the doctor can listen to w
       ],
       model: "gpt-4.1-mini",
       temperature: 0.7,
-      max_tokens: 800,
+      max_tokens: 5000,
     });
 
     return completion.choices[0].message.content || 'Unable to generate speech text.';
