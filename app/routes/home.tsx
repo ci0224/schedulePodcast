@@ -1,13 +1,20 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Doctor Schedule App" },
+    { name: "description", content: "Doctor Schedule Management System" },
   ];
 }
 
 export default function Home() {
-  return <Welcome />;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate('/login');
+  }, [navigate]);
+
+  return null;
 }

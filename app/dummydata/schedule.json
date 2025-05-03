@@ -1,0 +1,71 @@
+[
+    {
+      "date": "2025-05-05",
+      "visits": [
+        { "time": "08:00", "patient_id": "P001", "doctor": "Dr. Smith", "department": "Cardiology", "reason": "Routine checkup" },
+        { "time": "08:00", "patient_id": "P002", "doctor": "Dr. Adams", "department": "Dermatology", "reason": "Skin rash" },
+        { "time": "08:30", "patient_id": "P003", "doctor": "Dr. Chen", "department": "Pediatrics", "reason": "Fever" },
+        { "time": "09:15", "patient_id": "P004", "doctor": "Dr. Smith", "department": "Cardiology", "reason": "Chest pain" },
+        { "time": "09:15", "patient_id": "P005", "doctor": "Dr. Adams", "department": "Dermatology", "reason": "Allergy" },
+        { "time": "10:00", "patient_id": "P006", "doctor": "Dr. Chen", "department": "Pediatrics", "reason": "Vaccination" },
+        { "time": "10:45", "patient_id": "P007", "doctor": "Dr. Smith", "department": "Cardiology", "reason": "Follow-up" },
+        { "time": "11:30", "patient_id": "P008", "doctor": "Dr. Adams", "department": "Dermatology", "reason": "Mole check" },
+        { "time": "13:00", "patient_id": "P009", "doctor": "Dr. Chen", "department": "Pediatrics", "reason": "Cough" },
+        { "time": "13:45", "patient_id": "P010", "doctor": "Dr. Smith", "department": "Cardiology", "reason": "ECG review" },
+        { "time": "14:00", "patient_id": "P011", "doctor": "Dr. Adams", "department": "Dermatology", "reason": "Acne" },
+        { "time": "14:30", "patient_id": "P012", "doctor": "Dr. Chen", "department": "Pediatrics", "reason": "Nutrition consult" }
+      ]
+    },
+    {
+      "date": "2025-05-06",
+      "visits": [
+        { "time": "08:00", "patient_id": "P013", "doctor": "Dr. Smith", "department": "Cardiology", "reason": "Blood pressure check" },
+        { "time": "08:15", "patient_id": "P014", "doctor": "Dr. Adams", "department": "Dermatology", "reason": "Eczema" },
+        { "time": "08:45", "patient_id": "P015", "doctor": "Dr. Chen", "department": "Pediatrics", "reason": "Growth check" },
+        { "time": "09:30", "patient_id": "P016", "doctor": "Dr. Smith", "department": "Cardiology", "reason": "Heart murmur" },
+        { "time": "09:30", "patient_id": "P017", "doctor": "Dr. Adams", "department": "Dermatology", "reason": "Psoriasis" },
+        { "time": "10:15", "patient_id": "P018", "doctor": "Dr. Chen", "department": "Pediatrics", "reason": "Flu shot" },
+        { "time": "11:00", "patient_id": "P019", "doctor": "Dr. Smith", "department": "Cardiology", "reason": "Stress test" },
+        { "time": "11:45", "patient_id": "P020", "doctor": "Dr. Adams", "department": "Dermatology", "reason": "Wart removal" },
+        { "time": "13:00", "patient_id": "P021", "doctor": "Dr. Chen", "department": "Pediatrics", "reason": "Asthma" },
+        { "time": "13:30", "patient_id": "P022", "doctor": "Dr. Smith", "department": "Cardiology", "reason": "Holter monitor" },
+        { "time": "14:00", "patient_id": "P023", "doctor": "Dr. Adams", "department": "Dermatology", "reason": "Skin biopsy" },
+        { "time": "14:15", "patient_id": "P024", "doctor": "Dr. Chen", "department": "Pediatrics", "reason": "Development check" }
+      ]
+    },
+    {
+      "date": "2025-05-07",
+      "visits": [
+        { "time": "08:00", "patient_id": "P025", "doctor": "Dr. Smith", "department": "Cardiology", "reason": "Arrhythmia" },
+        { "time": "08:30", "patient_id": "P026", "doctor": "Dr. Adams", "department": "Dermatology", "reason": "Rosacea" },
+        { "time": "09:00", "patient_id": "P027", "doctor": "Dr. Chen", "department": "Pediatrics", "reason": "Ear infection" },
+        { "time": "09:45", "patient_id": "P028", "doctor": "Dr. Smith", "department": "Cardiology", "reason": "Pacemaker check" },
+        { "time": "09:45", "patient_id": "P029", "doctor": "Dr. Adams", "department": "Dermatology", "reason": "Hair loss" },
+        { "time": "10:30", "patient_id": "P030", "doctor": "Dr. Chen", "department": "Pediatrics", "reason": "ADHD" },
+        { "time": "11:15", "patient_id": "P031", "doctor": "Dr. Smith", "department": "Cardiology", "reason": "Angina" },
+        { "time": "12:00", "patient_id": "P032", "doctor": "Dr. Adams", "department": "Dermatology", "reason": "Melanoma screening" },
+        { "time": "13:00", "patient_id": "P033", "doctor": "Dr. Chen", "department": "Pediatrics", "reason": "Allergy testing" },
+        { "time": "13:45", "patient_id": "P034", "doctor": "Dr. Smith", "department": "Cardiology", "reason": "Echocardiogram" },
+        { "time": "14:00", "patient_id": "P035", "doctor": "Dr. Adams", "department": "Dermatology", "reason": "Chemical peel" },
+        { "time": "14:30", "patient_id": "P036", "doctor": "Dr. Chen", "department": "Pediatrics", "reason": "Vaccination schedule" }
+      ]
+    },
+    {
+      "date": "2025-05-08",
+      "visits": [
+        { "time": "08:00", "patient_id": "P037", "doctor": "Dr. Smith", "department": "Cardiology", "reason": "Heart failure" },
+        { "time": "08:15", "patient_id": "P038", "doctor": "Dr. Adams", "department": "Dermatology", "reason": "Vitiligo" },
+        { "time": "09:00", "patient_id": "P039", "doctor": "Dr. Chen", "department": "Pediatrics", "reason": "Diabetes check" },
+        { "time": "09:30", "patient_id": "P040", "doctor": "Dr. Smith", "department": "Cardiology", "reason": "Cardiac rehab" },
+        { "time": "09:30", "patient_id": "P041", "doctor": "Dr. Adams", "department": "Dermatology", "reason": "Laser treatment" },
+        { "time": "10:15", "patient_id": "P042", "doctor": "Dr. Chen", "department": "Pediatrics", "reason": "Scoliosis" },
+        { "time": "11:00", "patient_id": "P043", "doctor": "Dr. Smith", "department": "Cardiology", "reason": "Heart valve" },
+        { "time": "11:45", "patient_id": "P044", "doctor": "Dr. Adams", "department": "Dermatology", "reason": "Fungal infection" },
+        { "time": "13:00", "patient_id": "P045", "doctor": "Dr. Chen", "department": "Pediatrics", "reason": "Immunization" },
+        { "time": "13:30", "patient_id": "P046", "doctor": "Dr. Smith", "department": "Cardiology", "reason": "Cardiac CT" },
+        { "time": "14:00", "patient_id": "P047", "doctor": "Dr. Adams", "department": "Dermatology", "reason": "Skin cancer" },
+        { "time": "14:15", "patient_id": "P048", "doctor": "Dr. Chen", "department": "Pediatrics", "reason": "Behavioral consult" }
+      ]
+    }
+  ]
+  

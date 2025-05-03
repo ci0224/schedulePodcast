@@ -1,0 +1,590 @@
+[
+    {
+      "patient_id": "P001",
+      "name": "Alice Johnson",
+      "age": 47,
+      "gender": "Female",
+      "conditions": ["Hypertension", "Type 2 Diabetes"],
+      "medications": ["Lisinopril", "Metformin"],
+      "allergies": ["Penicillin"],
+      "visits": [
+        {
+          "date": "2024-11-15",
+          "doctor": "Dr. Smith",
+          "department": "Cardiology",
+          "reason": "Initial consultation",
+          "diagnoses": ["Hypertension"],
+          "visitSummary": "New patient. Blood pressure elevated. Started Lisinopril."
+        },
+        {
+          "date": "2024-12-20",
+          "doctor": "Dr. Smith",
+          "department": "Cardiology",
+          "reason": "Follow-up",
+          "diagnoses": ["Hypertension"],
+          "visitSummary": "BP improved. Continue medication."
+        },
+        {
+          "date": "2025-01-15",
+          "doctor": "Dr. Smith",
+          "department": "Cardiology",
+          "reason": "Routine checkup",
+          "diagnoses": ["Hypertension"],
+          "visitSummary": "Blood pressure elevated. Increased dosage of Lisinopril."
+        },
+        {
+          "date": "2025-03-20",
+          "doctor": "Dr. Smith",
+          "department": "Cardiology",
+          "reason": "Follow-up",
+          "diagnoses": ["Hypertension", "Type 2 Diabetes"],
+          "visitSummary": "Stable blood pressure. Discussed diet and exercise."
+        }
+      ]
+    },
+    {
+      "patient_id": "P002",
+      "name": "Bob Lee",
+      "age": 35,
+      "gender": "Male",
+      "conditions": ["Eczema"],
+      "medications": ["Hydrocortisone cream"],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P003",
+      "name": "Emma Chen",
+      "age": 8,
+      "gender": "Female",
+      "conditions": ["Asthma"],
+      "medications": ["Albuterol inhaler"],
+      "allergies": ["Dust mites", "Pollen"],
+      "visits": [
+        {
+          "date": "2025-02-01",
+          "doctor": "Dr. Chen",
+          "department": "Pediatrics",
+          "reason": "Asthma check",
+          "diagnoses": ["Asthma"],
+          "visitSummary": "Peak flow measurements improved. Continue current treatment."
+        },
+        {
+          "date": "2025-04-15",
+          "doctor": "Dr. Chen",
+          "department": "Pediatrics",
+          "reason": "Fever",
+          "diagnoses": ["Viral infection"],
+          "visitSummary": "Prescribed rest and fluids. Monitor temperature."
+        }
+      ]
+    },
+    {
+      "patient_id": "P004",
+      "name": "James Wilson",
+      "age": 45,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P005",
+      "name": "Maria Garcia",
+      "age": 32,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P006",
+      "name": "John Anderson",
+      "age": 58,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P007",
+      "name": "Lisa Taylor",
+      "age": 29,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P008",
+      "name": "William Clark",
+      "age": 63,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P009",
+      "name": "Patricia White",
+      "age": 41,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P010",
+      "name": "Richard Moore",
+      "age": 55,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P011",
+      "name": "Susan Hall",
+      "age": 37,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P012",
+      "name": "Thomas Lewis",
+      "age": 49,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P013",
+      "name": "Michael Rodriguez",
+      "age": 52,
+      "gender": "Male",
+      "conditions": ["Hypertension", "High Cholesterol"],
+      "medications": ["Amlodipine", "Atorvastatin"],
+      "allergies": ["Sulfa drugs"],
+      "visits": []
+    },
+    {
+      "patient_id": "P014",
+      "name": "Sarah Thompson",
+      "age": 28,
+      "gender": "Female",
+      "conditions": ["Psoriasis"],
+      "medications": ["Topical calcipotriene"],
+      "allergies": ["Latex"],
+      "visits": [
+        {
+          "date": "2024-12-15",
+          "doctor": "Dr. Adams",
+          "department": "Dermatology",
+          "reason": "Initial consultation",
+          "diagnoses": ["Psoriasis"],
+          "visitSummary": "First visit. Started calcipotriene cream."
+        },
+        {
+          "date": "2025-02-15",
+          "doctor": "Dr. Adams",
+          "department": "Dermatology",
+          "reason": "Follow-up",
+          "diagnoses": ["Psoriasis"],
+          "visitSummary": "Started calcipotriene cream. Avoid triggers."
+        },
+        {
+          "date": "2025-04-01",
+          "doctor": "Dr. Adams",
+          "department": "Dermatology",
+          "reason": "Follow-up",
+          "diagnoses": ["Psoriasis"],
+          "visitSummary": "Lesions improving. Continue treatment."
+        }
+      ]
+    },
+    {
+      "patient_id": "P015",
+      "name": "Elizabeth Turner",
+      "age": 33,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P016",
+      "name": "Daniel Parker",
+      "age": 61,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P017",
+      "name": "Margaret Evans",
+      "age": 44,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P018",
+      "name": "Joseph Edwards",
+      "age": 52,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P019",
+      "name": "Nancy Collins",
+      "age": 39,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P020",
+      "name": "Charles Stewart",
+      "age": 67,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P021",
+      "name": "Karen Morris",
+      "age": 31,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P022",
+      "name": "Edward Cook",
+      "age": 56,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P023",
+      "name": "Betty Rogers",
+      "age": 48,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P024",
+      "name": "George Reed",
+      "age": 59,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P025",
+      "name": "David Wilson",
+      "age": 65,
+      "gender": "Male",
+      "conditions": ["Arrhythmia", "Coronary Artery Disease"],
+      "medications": ["Metoprolol", "Aspirin"],
+      "allergies": ["Iodine"],
+      "visits": []
+    },
+    {
+      "patient_id": "P026",
+      "name": "Jennifer Martinez",
+      "age": 42,
+      "gender": "Female",
+      "conditions": ["Rosacea"],
+      "medications": ["Metronidazole cream"],
+      "allergies": ["Sulfa drugs"],
+      "visits": [
+        {
+          "date": "2024-11-05",
+          "doctor": "Dr. Adams",
+          "department": "Dermatology",
+          "reason": "Initial consultation",
+          "diagnoses": ["Rosacea"],
+          "visitSummary": "First visit. Started metronidazole cream."
+        },
+        {
+          "date": "2025-01-15",
+          "doctor": "Dr. Adams",
+          "department": "Dermatology",
+          "reason": "Follow-up",
+          "diagnoses": ["Rosacea"],
+          "visitSummary": "Facial redness improving. Continue treatment."
+        },
+        {
+          "date": "2025-02-05",
+          "doctor": "Dr. Adams",
+          "department": "Dermatology",
+          "reason": "Follow-up",
+          "diagnoses": ["Rosacea"],
+          "visitSummary": "Started metronidazole cream. Avoid triggers."
+        },
+        {
+          "date": "2025-04-20",
+          "doctor": "Dr. Adams",
+          "department": "Dermatology",
+          "reason": "Follow-up",
+          "diagnoses": ["Rosacea"],
+          "visitSummary": "Facial redness improved. Continue treatment."
+        }
+      ]
+    },
+    {
+      "patient_id": "P027",
+      "name": "Helen Bailey",
+      "age": 36,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P028",
+      "name": "Frank Bell",
+      "age": 64,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P029",
+      "name": "Dorothy Murphy",
+      "age": 43,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P030",
+      "name": "Henry Price",
+      "age": 51,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P031",
+      "name": "Ruth Bennett",
+      "age": 38,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P032",
+      "name": "Raymond Wood",
+      "age": 66,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P033",
+      "name": "Sharon Brooks",
+      "age": 30,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P034",
+      "name": "Lawrence Kelly",
+      "age": 57,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P035",
+      "name": "Deborah Howard",
+      "age": 46,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P036",
+      "name": "Kenneth Ward",
+      "age": 60,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P037",
+      "name": "Robert Brown",
+      "age": 70,
+      "gender": "Male",
+      "conditions": ["Heart Failure", "Hypertension"],
+      "medications": ["Furosemide", "Carvedilol"],
+      "allergies": ["ACE inhibitors"],
+      "visits": []
+    },
+    {
+      "patient_id": "P038",
+      "name": "Carol Cox",
+      "age": 34,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P039",
+      "name": "Peter Diaz",
+      "age": 62,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P040",
+      "name": "Virginia Foster",
+      "age": 40,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P041",
+      "name": "Arthur Hughes",
+      "age": 53,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P042",
+      "name": "Frances Butler",
+      "age": 35,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P043",
+      "name": "Ralph Simmons",
+      "age": 68,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P044",
+      "name": "Joyce Foster",
+      "age": 32,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P045",
+      "name": "Samuel Bryant",
+      "age": 54,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P046",
+      "name": "Martha Alexander",
+      "age": 45,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P047",
+      "name": "Russell Russell",
+      "age": 58,
+      "gender": "Male",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    },
+    {
+      "patient_id": "P048",
+      "name": "Brenda Griffin",
+      "age": 36,
+      "gender": "Female",
+      "conditions": [],
+      "medications": [],
+      "allergies": [],
+      "visits": []
+    }
+  ]  
